@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>ru.otus.hw</groupId>
-    <artifactId>2024-07-otus-spting-zhelyaeva</artifactId>
+    <groupId>ru.otus.spring</groupId>
+    <artifactId>zhelyaeva</artifactId>
     <version>1.0</version>
 
     <packaging>pom</packaging>
