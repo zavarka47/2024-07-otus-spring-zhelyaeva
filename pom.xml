@@ -9,6 +9,8 @@
     <artifactId>2024-07-otus-spting-zhelyaeva</artifactId>
     <version>1.0</version>
 
+    <packaging>pom</packaging>
+
     <modules>
         <module>hw01</module>
         <module>hw02</module>
