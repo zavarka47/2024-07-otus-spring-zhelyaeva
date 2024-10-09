@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 public class CsvQuestionDao implements QuestionDao {
@@ -20,7 +21,8 @@ public class CsvQuestionDao implements QuestionDao {
     public List<Question> findAll() {
 
         List<Question> result = null;
-        try (var questionStream = getClass().getClassLoader().getResourceAsStream(fileNameProvider.getTestFileName())) {
+        try (var questionStream = Objects.requireNonNull(getClass().getClassLoader()
+                .getResourceAsStream(fileNameProvider.getTestFileName()))) {
             result = new CsvToBeanBuilder<QuestionDto>(new BufferedReader(new InputStreamReader(questionStream)))
                     .withType(QuestionDto.class)
                     .withSeparator(';')

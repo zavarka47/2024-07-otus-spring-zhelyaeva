@@ -26,7 +26,8 @@
     <bean id="appApoperty" class="ru.otus.hw.config.AppProperties">
         <property name="testFileName" value="questions.csv"/>
     </bean>
-
-
+    <bean id="csvQuestion" class="ru.otus.hw.dao.CsvQuestionDao">
+        <constructor-arg index="0" ref="appApoperty"/>
+    </bean>
 
 </beans>

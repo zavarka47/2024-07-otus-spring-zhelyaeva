@@ -5,6 +5,8 @@ import ru.otus.hw.config.TestFileNameProvider;
 import ru.otus.hw.dao.CsvQuestionDao;
 import ru.otus.hw.dao.QuestionDao;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @RequiredArgsConstructor
 public class TestServiceImpl implements TestService {
 
@@ -19,9 +21,12 @@ public class TestServiceImpl implements TestService {
         QuestionDao questionDao = new CsvQuestionDao(provider);
         questionDao.findAll()
                 .forEach(question -> {
+                    var count = new AtomicInteger();
                     ioService.printLine(question.text());
-                    question.answers().forEach(answer -> ioService.printLine(question.answers().indexOf(answer)
-                            + ". " + answer.text()));
+                    question.answers().forEach(answer -> {
+                        ioService.printLine(count.incrementAndGet()
+                                + ". " + answer.text());
+                    });
                     ioService.printLine("______");
 
                 });
