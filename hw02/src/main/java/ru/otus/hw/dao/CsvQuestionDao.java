@@ -21,10 +21,6 @@ public class CsvQuestionDao implements QuestionDao {
 
     @Override
     public List<Question> findAll() {
-        // Использовать CsvToBean
-        // https://opencsv.sourceforge.net/#collection_based_bean_fields_one_to_many_mappings
-        // Использовать QuestionReadException
-        // Про ресурсы: https://mkyong.com/java/java-read-a-file-from-resources-folder/
         List<Question> result = null;
         try (var questionStream = Objects.requireNonNull(getClass().getClassLoader()
                 .getResourceAsStream(fileNameProvider.getTestFileName()))) {
