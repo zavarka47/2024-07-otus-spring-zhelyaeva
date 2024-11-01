@@ -14,8 +14,6 @@ public class Application {
 
         //Создать контекст Spring Boot приложения
         ApplicationContext context = SpringApplication.run(Application.class);
-        var testRunnerService = context.getBean(TestRunnerService.class);
-        testRunnerService.run();
 
     }
 }
